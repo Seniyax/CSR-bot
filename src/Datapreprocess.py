@@ -7,22 +7,35 @@ from nltk.tokenize import word_tokenize
 import nltk
 
 
+import pandas as pd
+import spacy
+import re
+from loguru import logger
+import json
+from nltk.tokenize import word_tokenize
+import nltk
+import os
+
+# Download NLTK data
 nltk.download('punkt')
 
-
+# Initialize spaCy for text processing
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])  # Disable unused components for speed
 
 # Configure logging
-logger.add("logs/chatbot.log", rotation="1 MB")
+logger.add("customer_support_chatbot/logs/chatbot.log", rotation="1 MB")
 
-def clean_text(text):
-    """Clean tweet text by removing URLs, mentions, emojis, and normalizing."""
+def clean_text(text, tech_companies):
+    """Clean tweet text, removing URLs, user mentions (except tech companies), emojis, and normalizing."""
+    if not isinstance(text, str):
+        return ""
     # Remove URLs
     text = re.sub(r"http\S+|www\S+|https\S+", "", text, flags=re.MULTILINE)
-    # Remove mentions (@username)
-    text = re.sub(r"@\w+", "", text)
+    # Remove user mentions (except tech companies)
+    tech_mention_pattern = "|".join([f"@{company}" for company in tech_companies])
+    text = re.sub(r"@\w+", lambda x: x.group(0) if x.group(0) in tech_mention_pattern else "", text)
     # Remove emojis (basic regex for common emojis)
-    text = re.sub(r"[^\w\s.,!?]", "", text)
+    text = re.sub(r"[^\w\s.,!?@]", "", text)
     # Normalize whitespace and lowercase
     text = " ".join(text.lower().strip().split())
     # Use spaCy for further cleaning
@@ -32,6 +45,8 @@ def clean_text(text):
 
 def chunk_text(text, max_tokens=300):
     """Split text into chunks of approximately max_tokens tokens."""
+    if not text:
+        return []
     tokens = word_tokenize(text)
     chunks = []
     current_chunk = []
@@ -52,29 +67,46 @@ def preprocess_dataset(input_path, output_path, max_pairs=100):
     """Preprocess Kaggle dataset to extract tech support Q-A pairs."""
     logger.info("Starting data preprocessing")
     
-    # Load dataset in chunks to manage memory
+    # Tech support company handles
+    tech_companies = ["AppleSupport", "MicrosoftHelps", "Google", "AmazonHelp", "DellCares", "HPSupport","AdobeCare"]
+    
+    # Load replies dataset
+    logger.info("Loading replies dataset")
+    replies_df = pd.read_csv(input_path, usecols=["tweet_id", "author_id", "text", "in_response_to_tweet_id"],
+                             dtype={"tweet_id": str, "author_id": str, "in_response_to_tweet_id": str})
+    replies_df.columns = replies_df.columns.str.lower().str.replace(" ", "_")
+    replies_df["in_response_to_tweet_id"] = replies_df["in_response_to_tweet_id"].astype(str).replace("nan", "")
+    
+    # Filter tech support replies
+    tech_replies = replies_df[replies_df["author_id"].isin(tech_companies)]
+    logger.info(f"Found {len(tech_replies)} potential tech support replies")
+    
+    # Process queries in chunks
     chunksize = 500
     qa_pairs = []
     
-    # Tech support company handles
-    tech_companies = ["AppleSupport", "MicrosoftHelps", "Google", "AmazonHelp"]
-    
-    for chunk in pd.read_csv(input_path, chunksize=chunksize):
-        # Filter customer queries (no in_response_to_tweet_id)
-        queries = chunk[chunk["in_response_to_tweet_id"].isna() & 
-                       chunk["text"].str.contains("help|issue|problem|support", case=False, na=False)]
+    for chunk in pd.read_csv(input_path, chunksize=chunksize, 
+                             dtype={"tweet_id": str, "in_response_to_tweet_id": str, "author_id": str}):
+        chunk.columns = chunk.columns.str.lower().str.replace(" ", "_")
+        chunk["tweet_id"] = chunk["tweet_id"].astype(str)
+        chunk["in_response_to_tweet_id"] = chunk["in_response_to_tweet_id"].astype(str).replace("nan", "")
+        
+        # Filter customer queries (not from tech companies, contains tech support keywords)
+        queries = chunk[(chunk["in_response_to_tweet_id"] == "") & 
+                        ~chunk["author_id"].isin(tech_companies) &
+                        chunk["text"].str.contains("help|issue|problem|support|error|bug|technical|fix|trouble|device|software|update", 
+                                                 case=False, na=False)]
+        logger.info(f"Found {len(queries)} queries in chunk")
         
         for _, query in queries.iterrows():
-            # Find company reply
-            reply = chunk[(chunk["in_response_to_tweet_id"] == query["tweet_id"]) & 
-                         chunk["author_id"].isin(tech_companies)]
+            # Find reply in tech_replies
+            reply = tech_replies[tech_replies["in_response_to_tweet_id"] == query["tweet_id"]]
             
             if not reply.empty:
-                question = clean_text(query["text"])
-                answer = clean_text(reply.iloc[0]["text"])
+                question = clean_text(query["text"], tech_companies)
+                answer = clean_text(reply.iloc[0]["text"], tech_companies)
                 if question and answer:  # Ensure non-empty
                     qa_text = f"Question: {question} Answer: {answer}"
-                    # Chunk the Q-A pair
                     chunks = chunk_text(qa_text)
                     for i, chunk in enumerate(chunks):
                         qa_pairs.append({
@@ -85,12 +117,13 @@ def preprocess_dataset(input_path, output_path, max_pairs=100):
                                 "category": "tech_support"
                             }
                         })
+                    logger.debug(f"Added Q-A pair for tweet_id {query['tweet_id']}: {qa_text[:50]}...")
         
-        # Stop after collecting max_pairs
         if len(qa_pairs) >= max_pairs:
             break
     
     # Save processed data
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w") as f:
         json.dump(qa_pairs, f, indent=2)
     
@@ -99,5 +132,5 @@ def preprocess_dataset(input_path, output_path, max_pairs=100):
 
 if __name__ == "__main__":
     input_path = "data/twcs.csv"
-    output_path = "data/processed/faqs_processed.json"
+    output_path = "data/faqs_processed.json"
     preprocess_dataset(input_path, output_path, max_pairs=100)

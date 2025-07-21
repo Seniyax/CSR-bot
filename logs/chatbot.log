@@ -1,0 +1,15 @@
+2025-07-12 13:09:27.390 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 13:24:23.469 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 13:24:42.643 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 15:32:02.547 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 15:34:57.462 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 15:37:42.481 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 15:38:38.789 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json
+2025-07-12 16:19:25.771 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 16:20:26.427 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json
+2025-07-12 16:29:52.960 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-12 16:30:51.166 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json
+2025-07-20 16:26:29.592 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-20 16:27:29.117 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json
+2025-07-20 16:47:14.485 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
+2025-07-20 16:48:03.211 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json

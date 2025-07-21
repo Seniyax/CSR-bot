@@ -1,0 +1,9 @@
+huggingface:
+  model: "mistralai/Mistral-7B-Instruct-v0.2"
+  api_endpoint: "https://api-inference.huggingface.co/models"
+pinecone:
+  index_name: "customer-support"
+  dimension: 384  # Matches all-MiniLM-L6-v2 embedding size
+rag:
+  top_k: 5  # Number of documents to retrieve
+  chunk_size: 300  # Tokens per chunk
