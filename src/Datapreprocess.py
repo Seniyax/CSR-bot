@@ -7,14 +7,7 @@ from nltk.tokenize import word_tokenize
 import nltk
 
 
-import pandas as pd
-import spacy
-import re
-from loguru import logger
-import json
-from nltk.tokenize import word_tokenize
-import nltk
-import os
+
 
 # Download NLTK data
 nltk.download('punkt')
@@ -23,7 +16,7 @@ nltk.download('punkt')
 nlp = spacy.load("en_core_web_sm", disable=["parser", "ner"])  # Disable unused components for speed
 
 # Configure logging
-logger.add("customer_support_chatbot/logs/chatbot.log", rotation="1 MB")
+logger.add("/logs/chatbot.log", rotation="1 MB")
 
 def clean_text(text, tech_companies):
     """Clean tweet text, removing URLs, user mentions (except tech companies), emojis, and normalizing."""

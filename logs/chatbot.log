@@ -13,3 +13,16 @@
 2025-07-20 16:27:29.117 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json
 2025-07-20 16:47:14.485 | INFO     | __main__:preprocess_dataset:53 - Starting data preprocessing
 2025-07-20 16:48:03.211 | INFO     | __main__:preprocess_dataset:105 - Processed 0 Q-A pairs, saved to data/faqs_processed.json
+2025-07-22 16:27:19.266 | INFO     | __main__:intialize_pinecone:11 - Intializing pinecone index
+2025-07-22 16:27:19.266 | ERROR    | __main__:intialize_pinecone:18 - PINECONE_API_KEY or PINECONE_ENVIROMENT is not found in .env
+2025-07-22 16:29:06.170 | INFO     | __main__:intialize_pinecone:11 - Intializing pinecone index
+2025-07-22 16:29:06.170 | ERROR    | __main__:intialize_pinecone:18 - PINECONE_API_KEY or PINECONE_ENVIROMENT is not found in .env
+2025-07-22 16:29:59.006 | INFO     | __main__:intialize_pinecone:11 - Intializing pinecone index
+2025-07-22 16:29:59.006 | ERROR    | __main__:intialize_pinecone:18 - PINECONE_API_KEY or PINECONE_ENVIROMENT is not found in .env
+2025-07-22 16:40:38.207 | INFO     | __main__:intialize_pinecone:11 - Intializing pinecone index
+2025-07-22 17:07:31.504 | INFO     | __main__:intialize_pinecone:13 - Intializing pinecone index
+2025-07-22 17:07:33.144 | INFO     | __main__:intialize_pinecone:36 - Creating index in pincone with customer-support and 384 
+2025-07-22 17:07:34.110 | ERROR    | __main__:intialize_pinecone:48 - failed creating pinecone index
+2025-07-22 17:09:33.881 | INFO     | __main__:intialize_pinecone:13 - Intializing pinecone index
+2025-07-22 17:09:35.432 | INFO     | __main__:intialize_pinecone:36 - Creating index in pincone with customer-support and 384 
+2025-07-22 17:09:39.723 | INFO     | __main__:intialize_pinecone:51 - Index customer-support created succesfully
