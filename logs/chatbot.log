@@ -26,3 +26,18 @@
 2025-07-22 17:09:33.881 | INFO     | __main__:intialize_pinecone:13 - Intializing pinecone index
 2025-07-22 17:09:35.432 | INFO     | __main__:intialize_pinecone:36 - Creating index in pincone with customer-support and 384 
 2025-07-22 17:09:39.723 | INFO     | __main__:intialize_pinecone:51 - Index customer-support created succesfully
+2025-07-23 13:08:06.930 | INFO     | __main__:upload_embeddings:12 - Starting embeddings upload to pinecone
+2025-07-23 13:08:07.095 | INFO     | __main__:upload_embeddings:30 - Uploading 100 embeddings in batches of 10
+2025-07-23 13:09:51.312 | INFO     | __main__:upload_embeddings:12 - Starting embeddings upload to pinecone
+2025-07-23 13:09:51.411 | INFO     | __main__:upload_embeddings:30 - Uploading 100 embeddings in batches of 10
+2025-07-23 13:09:53.938 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:09:54.954 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:09:56.000 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:09:57.252 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:09:58.874 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:10:00.273 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:10:01.591 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:10:02.857 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:10:03.873 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:10:05.237 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
+2025-07-23 13:10:05.237 | INFO     | __main__:upload_embeddings:40 - Embedding uploaded completed..
