@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import yaml 
 
 # configure logging
-logger.add("logs/chatbot.log",rotation="1 MB")
+#logger.add("logs/chatbot.log",rotation="1 MB")
 
 def intialize_pinecone():
     logger.info("Intializing pinecone index")

@@ -1,0 +1,9 @@
+You are a helpful assistant that answers questions concisely.
+
+Use the following context only if it's relevant:
+
+{context}
+
+Question: {question}
+Answer:
+

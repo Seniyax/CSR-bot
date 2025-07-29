@@ -116,3 +116,14 @@
 2025-07-21 11:19:12.888 | DEBUG    | __main__:preprocess_dataset:120 - Added Q-A pair for tweet_id 5319: Question: ach schau an meine bestellung war unzust...
 2025-07-21 11:19:12.932 | DEBUG    | __main__:preprocess_dataset:120 - Added Q-A pair for tweet_id 5331: Question: @amazonhelp live chat down in the uk and...
 2025-07-21 11:19:13.200 | INFO     | __main__:preprocess_dataset:130 - Processed 100 Q-A pairs, saved to data/faqs_processed.json
+2025-07-24 16:11:52.652 | INFO     | __main__:initialize_rag_pipeline:39 - Initializing RAG pipeline
+2025-07-24 16:12:06.628 | ERROR    | __main__:initialize_rag_pipeline:82 - Failed to initialize Pinecone vector store: Pinecone.__init__() got an unexpected keyword argument 'index_name'
+2025-07-24 16:30:48.993 | INFO     | __main__:initialize_rag_pipeline:39 - Initializing RAG pipeline
+2025-07-24 16:30:57.394 | ERROR    | __main__:initialize_rag_pipeline:82 - Failed to initialize Pinecone vector store: Pinecone.__init__() missing 1 required positional argument: 'text_key'
+2025-07-24 16:32:41.030 | INFO     | __main__:initialize_rag_pipeline:39 - Initializing RAG pipeline
+2025-07-24 16:32:48.275 | ERROR    | __main__:initialize_rag_pipeline:82 - Failed to initialize Pinecone vector store: module 'pinecone' has no attribute 'Index'
+2025-07-24 16:43:21.804 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-24 16:43:40.343 | INFO     | __main__:initialize_rag_pipeline:97 - RAG pipeline initialized
+2025-07-24 16:43:40.343 | INFO     | __main__:query_rag:102 - Processing query: How do I fix my iPhone not charging?
+2025-07-24 16:43:42.383 | ERROR    | __main__:query_rag:108 - Error processing query: 'InferenceClient' object has no attribute 'post'
+2025-07-24 16:47:17.302 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline

@@ -41,3 +41,61 @@
 2025-07-23 13:10:03.873 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
 2025-07-23 13:10:05.237 | INFO     | __main__:upload_embeddings:36 - uploaded batch 10 to pinecone
 2025-07-23 13:10:05.237 | INFO     | __main__:upload_embeddings:40 - Embedding uploaded completed..
+2025-07-24 12:47:14.451 | INFO     | __main__:initialize_pipeline:21 - Initializing RAG pipeline
+2025-07-24 13:04:50.005 | INFO     | __main__:initialize_pipeline:23 - Initializing RAG pipeline
+2025-07-24 13:11:29.175 | INFO     | __main__:initialize_pipeline:24 - Initializing RAG pipeline
+2025-07-24 13:12:08.642 | ERROR    | __main__:initialize_pipeline:43 - Failed to Intialize vector store
+2025-07-24 13:18:21.666 | INFO     | __main__:initialize_pipeline:24 - Initializing RAG pipeline
+2025-07-24 13:18:28.922 | ERROR    | __main__:initialize_pipeline:44 - Failed to Intialize vector store
+2025-07-24 13:19:39.740 | INFO     | __main__:initialize_pipeline:24 - Initializing RAG pipeline
+2025-07-24 13:19:46.245 | ERROR    | __main__:initialize_pipeline:44 - Failed to Intialize vector store
+2025-07-24 15:46:58.637 | INFO     | __main__:initialize_pipeline:24 - Initializing RAG pipeline
+2025-07-24 15:47:09.925 | ERROR    | __main__:initialize_pipeline:44 - Failed to Intialize vector store
+2025-07-24 16:07:26.344 | INFO     | __main__:initialize_pipeline:24 - Initializing RAG pipeline
+2025-07-24 16:07:35.243 | ERROR    | __main__:initialize_pipeline:44 - Failed to Intialize vector store
+2025-07-24 16:47:42.260 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-24 16:47:59.387 | INFO     | __main__:initialize_rag_pipeline:97 - RAG pipeline initialized
+2025-07-24 16:47:59.387 | INFO     | __main__:query_rag:102 - Processing query: How do I fix my iPhone not charging?
+2025-07-24 16:48:02.429 | ERROR    | __main__:query_rag:108 - Error processing query: 'InferenceClient' object has no attribute 'post'
+2025-07-25 15:25:36.110 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 15:26:00.195 | ERROR    | __main__:initialize_rag_pipeline:79 - Failed to initialize HuggingFaceHub LLM: 1 validation error for HuggingFaceHub
+  Value error, Got invalid task None, currently only dict_keys(['translation', 'summarization', 'conversational', 'text-generation', 'text2text-generation']) are supported [type=value_error, input_value={'repo_id': 'mistralai/Mi...nt': None, 'task': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+2025-07-25 15:37:38.486 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 15:38:03.148 | ERROR    | __main__:initialize_rag_pipeline:79 - Failed to initialize HuggingFaceHub LLM: 1 validation error for HuggingFaceHub
+  Value error, Got invalid task None, currently only dict_keys(['translation', 'summarization', 'conversational', 'text-generation', 'text2text-generation']) are supported [type=value_error, input_value={'repo_id': 'mistralai/Mi...nt': None, 'task': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+2025-07-25 15:43:02.261 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 15:43:22.214 | INFO     | __main__:initialize_rag_pipeline:98 - RAG pipeline initialized
+2025-07-25 15:43:22.214 | INFO     | __main__:query_rag:103 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 15:43:28.997 | ERROR    | __main__:query_rag:109 - Error processing query: 'InferenceClient' object has no attribute 'post'
+2025-07-25 15:56:20.533 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 15:56:44.173 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 15:56:44.173 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 15:56:47.393 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.3 is not supported for task text-generation and provider novita. Supported task: conversational.
+2025-07-25 15:58:11.166 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 15:58:31.669 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 15:58:31.669 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 15:58:36.658 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.3 is not supported for task text-generation and provider novita. Supported task: conversational.
+2025-07-25 16:10:35.901 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 16:10:58.976 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 16:10:58.976 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 16:11:03.378 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.3 is not supported for task text-generation and provider novita. Supported task: conversational.
+2025-07-25 16:15:28.269 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 16:15:48.601 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 16:15:48.601 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 16:15:51.733 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.2 is not supported for task text-generation and provider featherless-ai. Supported task: conversational.
+2025-07-25 16:18:32.669 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 16:18:57.131 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 16:18:57.131 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 16:18:59.373 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.2 is not supported for task text-generation and provider featherless-ai. Supported task: conversational.
+2025-07-25 16:27:12.214 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 16:27:30.811 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 16:27:30.811 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 16:27:33.540 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.2 is not supported for task text-generation and provider featherless-ai. Supported task: conversational.
+2025-07-25 18:38:36.575 | INFO     | __main__:initialize_rag_pipeline:25 - Initializing RAG pipeline
+2025-07-25 18:39:02.934 | INFO     | __main__:initialize_rag_pipeline:99 - RAG pipeline initialized
+2025-07-25 18:39:02.934 | INFO     | __main__:query_rag:104 - Processing query: How do I fix my iPhone not charging?
+2025-07-25 18:39:07.413 | ERROR    | __main__:query_rag:110 - Error processing query: Model mistralai/Mistral-7B-Instruct-v0.2 is not supported for task text-generation and provider featherless-ai. Supported task: conversational.
+2025-07-27 11:11:31.395 | INFO     | __main__:upload_embeddings:12 - Starting embeddings upload to pinecone
+2025-07-27 11:11:31.587 | INFO     | __main__:upload_embeddings:30 - Uploading 100 embeddings in batches of 10

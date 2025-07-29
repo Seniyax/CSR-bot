@@ -1,8 +1,8 @@
 huggingface:
-  model: "mistralai/Mistral-7B-Instruct-v0.2"
+  model: "HuggingFaceH4/zephyr-7b-beta"
   api_endpoint: "https://api-inference.huggingface.co/models"
 pinecone:
-  index_name: "customer-support"
+  index_name: "customer-support-2"
   dimension: 384  # Matches all-MiniLM-L6-v2 embedding size
 rag:
   top_k: 5  # Number of documents to retrieve
