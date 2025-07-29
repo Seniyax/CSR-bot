@@ -43,7 +43,7 @@ Used a Custom dataset from [Kaggle](https://www.kaggle.com/datasets/thoughtvecto
 - Pinecone for free-tier vector search
 - LangChain for fast RAG prototyping
 - Gradio for interactive frontend
-### Demo video - 
+### Demo video - [Link](https://drive.google.com/file/d/1xAEHy-8D0g-8-lWZDz-9pkKR-Im4o6bw/view?usp=drive_link)
 
 
  
